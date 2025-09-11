@@ -1,11 +1,16 @@
+
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+// 1. IMPORTE SEU COMPONENTE DA LISTA AQUI
+import { PedidoListComponent } from './components/pedido-list/pedido-list.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  // 2. ADICIONE O COMPONENTE NO ARRAY DE IMPORTS
+  imports: [CommonModule, PedidoListComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'vex-ui';

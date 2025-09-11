@@ -1,0 +1,19 @@
+<div>
+  <h1>Meus Pedidos</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Descrição</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pedido of pedidos">
+      <td>{{ pedido.id }}</td>
+      <td>{{ pedido.descricao }}</td>
+      <td>{{ pedido.status }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
