@@ -7,13 +7,16 @@ import { Pedido } from '../models/pedido.model';
   providedIn: 'root'
 })
 export class PedidoService {
-
   private readonly apiUrl = 'http://localhost:8080/api/pedidos';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  // Método que busca a lista de pedidos no backend
   getPedidos(): Observable<Pedido[]> {
     return this.http.get<Pedido[]>(this.apiUrl);
+  }
+
+  criarPedido
+  (pedido: Omit<Pedido, 'id' | 'status' | 'dataCriacao'>): Observable<Pedido> {
+    return this.http.post<Pedido>(this.apiUrl, pedido);
   }
 }

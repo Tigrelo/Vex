@@ -29,6 +29,6 @@ public class Pedido {
     @Column(name = "data_criacao", updatable = false)
     private LocalDateTime dataCriacao = LocalDateTime.now();
 
-    // Outros campos e relacionamentos...
+
 }
 

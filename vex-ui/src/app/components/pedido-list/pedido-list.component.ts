@@ -9,23 +9,29 @@ import { PedidoService } from '../../services/pedido.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
 
+// Import do Módulo de Roteamento
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-pedido-list',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatToolbarModule, MatProgressSpinnerModule],
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    RouterModule,
+    MatButtonModule
+  ],
   templateUrl: './pedido-list.component.html',
   styleUrls: ['./pedido-list.component.scss']
 })
 export class PedidoListComponent implements OnInit {
 
   pedidos: Pedido[] = [];
-  // 1. Define as colunas que serão exibidas na tabela.
-  // Os nomes aqui DEVEM corresponder aos 'matColumnDef' no HTML.
   displayedColumns: string[] = ['id', 'descricao', 'status', 'enderecoOrigem', 'enderecoDestino'];
-
-  // (Bônus) Variável para controlar o spinner de carregamento
   isLoading = true;
 
   constructor(private pedidoService: PedidoService) { }
@@ -33,7 +39,7 @@ export class PedidoListComponent implements OnInit {
   ngOnInit(): void {
     this.pedidoService.getPedidos().subscribe(dados => {
       this.pedidos = dados;
-      this.isLoading = false; // Desliga o spinner quando os dados chegam
+      this.isLoading = false;
     });
   }
 }
