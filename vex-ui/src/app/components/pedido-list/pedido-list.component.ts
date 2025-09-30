@@ -10,7 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatChipsModule } from '@angular/material/chips';
 // Import do Módulo de Roteamento
 import { RouterModule } from '@angular/router';
 
@@ -23,7 +23,9 @@ import { RouterModule } from '@angular/router';
     MatToolbarModule,
     MatProgressSpinnerModule,
     RouterModule,
-    MatButtonModule
+    MatButtonModule,
+    MatChipsModule
+
   ],
   templateUrl: './pedido-list.component.html',
   styleUrls: ['./pedido-list.component.scss']

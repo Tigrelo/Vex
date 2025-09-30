@@ -1,6 +1,19 @@
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
+.status-aguardando {
+  background-color: #f0ad4e !important; // Laranja
+  color: white !important;
+}
+
+.status-em-transito {
+  background-color: #5bc0de !important; // Azul claro
+  color: white !important;
+}
+
+.status-entregue {
+  background-color: #5cb85c !important; // Verde
+  color: white !important;
+}
+
+.status-cancelado {
+  background-color: #d9534f !important; // Vermelho
+  color: white !important;
 }
