@@ -1,5 +1,3 @@
-// src/app/components/pedido-list/pedido-list.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Pedido } from '../../models/pedido.model';
@@ -11,6 +9,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+
 // Import do Módulo de Roteamento
 import { RouterModule } from '@angular/router';
 
@@ -24,7 +24,8 @@ import { RouterModule } from '@angular/router';
     MatProgressSpinnerModule,
     RouterModule,
     MatButtonModule,
-    MatChipsModule
+    MatChipsModule,
+    MatIconModule,
 
   ],
   templateUrl: './pedido-list.component.html',
@@ -33,7 +34,9 @@ import { RouterModule } from '@angular/router';
 export class PedidoListComponent implements OnInit {
 
   pedidos: Pedido[] = [];
-  displayedColumns: string[] = ['id', 'descricao', 'status', 'enderecoOrigem', 'enderecoDestino'];
+
+  // 3. ADICIONAR A COLUNA 'ACOES'
+  displayedColumns: string[] = ['id', 'descricao', 'status', 'enderecoOrigem', 'enderecoDestino', 'acoes'];
   isLoading = true;
 
   constructor(private pedidoService: PedidoService) { }
@@ -42,6 +45,13 @@ export class PedidoListComponent implements OnInit {
     this.pedidoService.getPedidos().subscribe(dados => {
       this.pedidos = dados;
       this.isLoading = false;
+    });
+  }
+
+  deletar(id: number): void {
+    this.pedidoService.deletarPedido(id).subscribe(() => {
+      // Remove o item da lista na tela sem precisar recarregar a página
+      this.pedidos = this.pedidos.filter(p => p.id !== id);
     });
   }
 }

@@ -1,25 +1,25 @@
 <mat-card>
-  <mat-card-title>Novo Pedido</mat-card-title>
+  <mat-card-title>{{ isEditMode ? 'Editar Pedido' : 'Novo Pedido' }}</mat-card-title>
   <mat-card-content>
     <form (ngSubmit)="onSubmit()" class="pedido-form">
 
       <mat-form-field appearance="fill">
         <mat-label>Descrição</mat-label>
-        <input matInput [(ngModel)]="novoPedido.descricao" name="descricao" required>
+        <input matInput [(ngModel)]="pedido.descricao" name="descricao" required>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Endereço de Origem</mat-label>
-        <input matInput [(ngModel)]="novoPedido.enderecoOrigem" name="enderecoOrigem" required>
+        <input matInput [(ngModel)]="pedido.enderecoOrigem" name="enderecoOrigem" required>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Endereço de Destino</mat-label>
-        <input matInput [(ngModel)]="novoPedido.enderecoDestino" name="enderecoDestino" required>
+        <input matInput [(ngModel)]="pedido.enderecoDestino" name="destino" required>
       </mat-form-field>
 
       <div class="actions">
-        <button mat-raised-button color="primary" type="submit">Salvar Pedido</button>
+        <button mat-raised-button color="primary" type="submit">Salvar</button>
         <button mat-button routerLink="/pedidos">Cancelar</button>
       </div>
 
