@@ -1,4 +1,92 @@
-/* You can add global styles to this file, and also import other style files */
+/* ---------------------------
+   1. Cores custom
+--------------------------- */
+:root {
+  --color1: #240717; // fundo principal
+  --color2: #391b2b; // secundário escuro
+  --color3: #4f303f; // primary
+  --color4: #644453; // secondary/tertiary
+  --color5: #795867; // detalhes/accent
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* ---------------------------
+   2. Tema global Angular Material
+--------------------------- */
+.vex-dark-theme {
+  --md-sys-color-primary: var(--color3);    // botões primários
+  --md-sys-color-tertiary: var(--color4);   // botões secundários
+  --md-sys-color-error: #f44336;            // botões de alerta
+  --md-sys-color-background: var(--color1); // fundo
+  --md-sys-color-surface: var(--color2);    // cards, tabelas
+  --md-ref-typeface-brand: 'Roboto, "Helvetica Neue", sans-serif';
+  --mat-density-scale: 0;
+}
+
+/* ---------------------------
+   3. Estilos globais
+--------------------------- */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--color1);
+  color: #f1f1f1;
+}
+
+/* ---------------------------
+   4. Chips de status
+--------------------------- */
+.status-aguardando {
+  background-color: var(--color5); // rosa detalhado
+  color: #fff;
+}
+.status-em-transito {
+  background-color: var(--color4); // roxo secundário
+  color: #fff;
+}
+.status-entregue {
+  background-color: var(--color3); // primary
+  color: #fff;
+}
+.status-cancelado {
+  background-color: #f44336; // vermelho warn
+  color: #fff;
+}
+
+/* ---------------------------
+   5. Cards e formulário
+--------------------------- */
+.mat-card {
+  background-color: var(--color2);
+  color: #f1f1f1;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: var(--color3);
+  color: #fff;
+}
+
+.mat-input-element {
+  color: #fff;
+}
+
+/* ---------------------------
+   6. Toolbar
+--------------------------- */
+.mat-toolbar {
+  background-color: var(--color3);
+  color: #fff;
+}
+
+/* ---------------------------
+   7. Botões
+--------------------------- */
+.mat-raised-button[color="primary"] {
+  background-color: var(--color3);
+  color: #fff;
+}
+
+.mat-raised-button[color="warn"] {
+  background-color: #f44336;
+  color: #fff;
+}
