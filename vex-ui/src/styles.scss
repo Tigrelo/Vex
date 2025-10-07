@@ -1,25 +1,26 @@
-/* ---------------------------
-   1. Cores custom
---------------------------- */
-:root {
-  --color1: #240717; // fundo principal
-  --color2: #391b2b; // secundário escuro
-  --color3: #4f303f; // primary
-  --color4: #644453; // secondary/tertiary
-  --color5: #795867; // detalhes/accent
-}
+@use '@angular/material' as mat;
 
 /* ---------------------------
-   2. Tema global Angular Material
+   1. Cores personalizadas
 --------------------------- */
-.vex-dark-theme {
-  --md-sys-color-primary: var(--color3);    // botões primários
-  --md-sys-color-tertiary: var(--color4);   // botões secundários
-  --md-sys-color-error: #f44336;            // botões de alerta
-  --md-sys-color-background: var(--color1); // fundo
-  --md-sys-color-surface: var(--color2);    // cards, tabelas
-  --md-ref-typeface-brand: 'Roboto, "Helvetica Neue", sans-serif';
-  --mat-density-scale: 0;
+$color1: #240717; // fundo principal
+$color2: #391b2b; // secundário escuro
+$color3: #4f303f; // primary
+$color4: #644453; // secondary/tertiary
+$color5: #795867; // detalhes/accent
+$color-warn: #d9534f; // alertas
+
+/* ---------------------------
+   2. Tema com o novo sistema (Material 17+)
+--------------------------- */
+html {
+  // cria um tema escuro baseado em suas cores
+  @include mat.theme((
+    color-scheme: dark,
+    primary: $color3,
+    tertiary: $color5,
+    error: $color-warn,
+  ));
 }
 
 /* ---------------------------
@@ -29,64 +30,53 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: var(--color1);
+  background-color: $color1;
   color: #f1f1f1;
 }
 
 /* ---------------------------
-   4. Chips de status
---------------------------- */
-.status-aguardando {
-  background-color: var(--color5); // rosa detalhado
-  color: #fff;
-}
-.status-em-transito {
-  background-color: var(--color4); // roxo secundário
-  color: #fff;
-}
-.status-entregue {
-  background-color: var(--color3); // primary
-  color: #fff;
-}
-.status-cancelado {
-  background-color: #f44336; // vermelho warn
-  color: #fff;
-}
-
-/* ---------------------------
-   5. Cards e formulário
---------------------------- */
-.mat-card {
-  background-color: var(--color2);
-  color: #f1f1f1;
-}
-
-.mat-form-field-appearance-fill .mat-form-field-flex {
-  background-color: var(--color3);
-  color: #fff;
-}
-
-.mat-input-element {
-  color: #fff;
-}
-
-/* ---------------------------
-   6. Toolbar
+   4. Toolbar
 --------------------------- */
 .mat-toolbar {
-  background-color: var(--color3);
+  background-color: $color3;
   color: #fff;
 }
 
 /* ---------------------------
-   7. Botões
+   5. Botões
 --------------------------- */
-.mat-raised-button[color="primary"] {
-  background-color: var(--color3);
+.mat-mdc-raised-button.mat-primary {
+  background-color: $color3;
   color: #fff;
 }
 
-.mat-raised-button[color="warn"] {
-  background-color: #f44336;
+.mat-mdc-raised-button.mat-accent {
+  background-color: $color5;
   color: #fff;
 }
+
+.mat-mdc-raised-button.mat-warn {
+  background-color: $color-warn;
+  color: #fff;
+}
+
+/* ---------------------------
+   6. Cards e formulários
+--------------------------- */
+.mat-mdc-card {
+  background-color: $color2;
+  color: #fff;
+}
+
+.mat-mdc-form-field {
+  --mdc-filled-text-field-container-color: #4f303f;
+  --mdc-filled-text-field-input-text-color: #fff;
+}
+
+/* ---------------------------
+   7. Chips de status
+--------------------------- */
+.status-aguardando { background-color: $color4; color: #fff; }
+.status-em-transito { background-color: $color5; color: #fff; }
+.status-entregue { background-color: $color3; color: #fff; }
+.status-cancelado { background-color: $color-warn; color: #fff; }
